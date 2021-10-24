@@ -11,10 +11,7 @@ public class HomeWorkApp {
   }
 
   public static void printThreeWords() {
-    String firstWord = "Orange";
-    String secondWord = "Banana";
-    String thirdWorld = "Apple";
-    System.out.println(firstWord + "\n" + secondWord + "\n" + thirdWorld + "\n");
+    System.out.println("Orange\nBanana\nApple\n");
 
   }
   public static void checkSumSign() {
@@ -37,11 +34,9 @@ public class HomeWorkApp {
   }
 
   public static void compareNumbers() {
-    int a = 4, b = 5;
-    if (a >= b) {
-      System.out.println("a >= b");
-    } else
-      System.out.println("a < b");
-  }
+    int a = 4, b = -5;
+    int c = a + b;
+    System.out.println("Сумма " + (c >= 0 ? "положительная" : "отрицательная"));
+   }
 
 }
