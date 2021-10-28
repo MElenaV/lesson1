@@ -26,13 +26,10 @@ public class HomeWork3 {
     }
     System.out.println("\nМассив после замены 0 на 1 и 1 на 0:");
     for (int i = 0; i < a.length; i++) {
-     if ( a[i] == 0 ) {
-       a[i] = 1;
-     } else {
-       a[i] = 0;
-     }
-      System.out.print(a[i] + " ");
+     a[i] = (a[i] == 0 ? 1 : 0);
+     System.out.print(a[i] + " ");
     }
+
   }
 
   public static void arrayValueFrom1To100() {
@@ -114,6 +111,9 @@ public class HomeWork3 {
       for (int i = 0; i < arr.length; i++) {
         sumArr += arr[i];
       }
+      if (sumArr % 2 != 0) {
+        return false;
+      }
       System.out.println("\nСумма по всему массиву:" + sumArr);
       int sumLeft = 0;
       for (int i = 0; i < arr.length; i++) {
@@ -148,6 +148,22 @@ public class HomeWork3 {
     for (int i = 0; i < arr.length; i++) {
       System.out.print(arr[i] + " ");
     }
+    /* Еще один способ из разбора лекции 5
+    Поправить и понять, как работает
+    private static int[] shiftArray(int[a], int offset) {
+      int len = a.lenght;
+      offset %= len;
+        for (int i = len - 1; i >= offset; i--) {
+          int c = a[i];
+          a[i] = a[i - offset];
+          a[i - offset] = c;
+        }
+      System.out.println(Arrays.toString(s));
+      return new int[0];
+    }
+    * */
+
+
 
   }
 }
