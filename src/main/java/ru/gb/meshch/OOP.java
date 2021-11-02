@@ -3,24 +3,26 @@ package ru.gb.meshch;
 public class OOP {
   public static void main(String[] args) {
 
-    Cat[] cats = new Cat[5];
-    cats[0] = new Cat("", 1);
+    Employee[] employeeArr = new Employee[5];
+    int adultAge = 40;
+    employeeArr[0] = new Employee("Петров Петр Петрович", "инженер", "petrovPP@gmail.com","8 910 104 78 23", 45000, 24);
+    employeeArr[1] = new Employee("Лисин Александр Валерьевич", "стажер", "lis@mail.ru","8 910 104 78 23", 10000, 19);
+    employeeArr[2] = new Employee("Моисеев Андрей Алексеевич", "менеджер отдела продаж", "moiseev@gmail.com","+7(926-654-32-12)", 45000, 45);
+    employeeArr[3] = new Employee("Бубнов Антон Иванович", "менеджер отдела продаж", "buben@yandex.ru","79106547898", 35000, 29);
+    employeeArr[4] = new Employee("Волкова Анастасия Сергеевна", "бухгалтер", "volchok@mail.ru","248-46-52", 30000, 40);
 
-
-    Cat cat1 = new Cat();  // создали экземпляр класса Cat, инстанс, объект класса
-    cat1.setName("Барсик");
-    cat1.setAge(4) ;
-    cat1.print();
-
-    Cat cat2 = new Cat();
-    cat2.setName("");
-    cat2.setAge(-6);
-    cat2.print();
-
-    Cat c3 = new Cat("Мурка", 4);
-    c3.print();
-
-    System.out.println(c3.getName());
-    System.out.println(c3.getAge());
+    System.out.println("Список всех сотрудников:");
+    for (int i = 0; i < employeeArr.length; i++) {
+        employeeArr[i].printEmployee();
+    }
+      
+    System.out.printf("\nCотрудники старше %d лет:\n", adultAge);
+    Employee[] adultArr = new Employee[employeeArr.length];;
+    for (int i = 0; i < employeeArr.length; i++) {
+      if (employeeArr[i].getAge() > adultAge) {
+        adultArr[i] = employeeArr[i];
+        adultArr[i].printEmployee();
+      }
+    }
   }
 }
