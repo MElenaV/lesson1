@@ -3,24 +3,47 @@ package ru.gb.meshch;
 public class OOP {
   public static void main(String[] args) {
 
-    Cat[] cats = new Cat[5];
-    cats[0] = new Cat("", 1);
+    /* ООП. Принципы (кратко):
+     * 0. Абстракция (ООП описывает объекты, мы отбрасываем у объекта какие-то свойства и оставляем те, что нужны для решения текущей задачи)
+     * 1. Инкапсуляция - способ хранения данных объекта внутри самого объекта ИЛИ способ скрыть, как внутри этот класс устроен (от других классов)
+     * 2. Наследование
+     * 3. Полиморфизм
+     * */
+
+  //private - виден только внутри класса
+  // default - виден только внутри пакета
+  // public - виден везде
+
+    Animal dog1 = new Dog("Шарик", 2, 20);
+    Animal cat1 = new Cat("Мурзик", 3, 10);
+    Animal cat2 = new Cat("Мурзик", 3, 10);
+
+    System.out.println(cat1);
+    System.out.println(dog1);
+
+    if(cat1.equals(cat2)) {
+      System.out.println("Это один и тот же кот");
+    } else {
+      System.out.println("Это разные коты");
+    }
+
+    askQuesyion(cat1);
+    askQuesyion(dog1);
 
 
-    Cat cat1 = new Cat();  // создали экземпляр класса Cat, инстанс, объект класса
-    cat1.setName("Барсик");
-    cat1.setAge(4) ;
-    cat1.print();
-
-    Cat cat2 = new Cat();
-    cat2.setName("");
-    cat2.setAge(-6);
-    cat2.print();
-
-    Cat c3 = new Cat("Мурка", 4);
-    c3.print();
-
-    System.out.println(c3.getName());
-    System.out.println(c3.getAge());
   }
+  static void askQuesyion(Animal animal) {
+    if (animal instanceof Cat) {  // оператор instanceof - сравнение объектов, но не желательное (instanceof - признак плохого кода)
+      Cat cat = (Cat) animal; //приведение типов, т.к. метод jump() не принадлежит классу Animal
+      cat.jump();
+    }
+    if (animal instanceof Dog) {
+      Dog dog = (Dog) animal;
+      dog.bite();
+    }
+    System.out.println("Какое животное говорит ");
+    animal.voice();
+  }
+
+
 }
