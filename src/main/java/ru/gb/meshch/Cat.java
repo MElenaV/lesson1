@@ -2,8 +2,15 @@ package ru.gb.meshch;
 
 public class Cat extends Animal {  // "чертеж" кота :)
 
+  private static int count = 0;
+
   public Cat(String name, int age, double weight) {
     super(name, age, weight);
+    count++;
+  }
+
+  public static int countCat() {
+    return count;
   }
 
   @Override  // переопределение метода родительского класса
@@ -11,8 +18,22 @@ public class Cat extends Animal {  // "чертеж" кота :)
     System.out.println("Мяу");
   }
 
+  @Override
+  protected void run(String name, int length) {
+    if (length <= 200) {
+      System.out.printf("%s пробежал %dм\n", name, length);
+    } else {
+      System.out.printf("%s не может пробежать более %dм\n", name, length);
+    }
+  }
+
+  @Override
+  protected void swim(String name, int length) {
+      System.out.printf("%s не может плыть, даже %dм\n", name, length);
+  }
+
   public void jump() {
-    System.out.println("Кот подпрыгнул");
+    System.out.println("Кот подпрыгнул\n");
   }
 
   @Override
