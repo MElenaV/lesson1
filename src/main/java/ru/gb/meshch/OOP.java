@@ -18,7 +18,7 @@ public class OOP {
     Employee[] employeeArr = new Employee[5];
     int adultAge = 40;
     employeeArr[0] = new Employee("Петров Петр Петрович", "инженер", "petrovPP@gmail.com", "8 910 104 78 23", 45000, 24);
-    employeeArr[1] = new Employee("Лисин Александр Валерьевич", "стажер", "lis@mail.ru", "8 910 104 78 23", 10000, 19);
+    employeeArr[1] = new Employee("Петров Петр Петрович", "инженер", "petrovPP@gmail.com", "8 910 104 78 23", 45000, 24);
     employeeArr[2] = new Employee("Моисеев Андрей Алексеевич", "менеджер отдела продаж", "moiseev@gmail.com", "+7(926-654-32-12)", 45000, 45);
     employeeArr[3] = new Employee("Бубнов Антон Иванович", "менеджер отдела продаж", "buben@yandex.ru", "79106547898", 35000, 29);
     employeeArr[4] = new Employee("Волкова Анастасия Сергеевна", "бухгалтер", "volchok@mail.ru", "248-46-52", 30000, 41);
@@ -41,5 +41,9 @@ public class OOP {
     Arrays.stream(employeeArr)
             .filter(e -> e.getAge() < adultAge)
             .forEach(e -> System.out.println(e));
+
+    System.out.println(employeeArr[0].equals(employeeArr[1]));
+
   }
+
 }

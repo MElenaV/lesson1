@@ -41,4 +41,26 @@ public class Employee {
     sb.append(", возраст: ").append(age);
     return sb.toString();
   }
+
+  // контракт:
+  // if Object o is null return false
+  // a.equals(s) == true
+  // if a.equals(b) -- true then b.equals(a) == true  // рефлексивность
+  // a == b, b == c => a == c // транзитивность
+  // метод equals должен быть такой, чтобы контракт соблюдался
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;  // проверка ссылок, если одинаковые - один и тот же объект
+    if (o == null || getClass() != o.getClass()) return false;  // проверяются классы объектов, их названия
+
+    Employee employee = (Employee) o;
+
+    if (Double.compare(employee.salary, salary) != 0) return false;
+    if (age != employee.age) return false;
+    if (fullName != null ? !fullName.equals(employee.fullName) : employee.fullName != null) return false;
+    if (position != null ? !position.equals(employee.position) : employee.position != null) return false;
+    if (email != null ? !email.equals(employee.email) : employee.email != null) return false;
+    return phone != null ? phone.equals(employee.phone) : employee.phone == null;
+  }
+
 }
