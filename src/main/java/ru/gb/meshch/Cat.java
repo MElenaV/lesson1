@@ -19,7 +19,7 @@ public class Cat extends Animal {  // "чертеж" кота :)
   }
 
   @Override
-  protected void run(String name, int length) {
+  public void run(String name, int length) {
     if (length <= 200) {
       System.out.printf("%s пробежал %dм\n", name, length);
     } else {
@@ -28,7 +28,7 @@ public class Cat extends Animal {  // "чертеж" кота :)
   }
 
   @Override
-  protected void swim(String name, int length) {
+  public void swim(String name, int length) {
       System.out.printf("%s не может плыть, даже %dм\n", name, length);
   }
 

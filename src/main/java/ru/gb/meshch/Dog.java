@@ -23,7 +23,7 @@ public class Dog extends Animal {
   }
 
   @Override
-  protected void run(String name, int length) {
+  public void run(String name, int length) {
     if (length <= 500) {
       System.out.printf("%s пробежал %dм\n", name, length);
     } else {
@@ -32,7 +32,7 @@ public class Dog extends Animal {
   }
 
   @Override
-  protected void swim(String name, int length) {
+  public void swim(String name, int length) {
     if (length <= 10) {
       System.out.printf("%s проплыл %dм\n", name, length);
     } else {
