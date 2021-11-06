@@ -2,6 +2,7 @@ package ru.gb.meshch;
 
 public abstract class Animal {  // Классы "заготовки" принято обозначать абстрактными - abstract, чтобы не создавать его экземпляры (они не нужны)
   private String name;
+  private int appetite;
   private int age;
   private double weight;
 
@@ -16,6 +17,15 @@ public abstract class Animal {  // Классы "заготовки" приня�
 
   public static int countAnimal() {
     return count;
+  }
+
+  public Animal(String name, int appetite) {
+    this.name = name;
+    this.appetite = appetite;
+  }
+
+  public int getAppetite() {
+    return appetite;
   }
 
   public String getName() {
@@ -44,6 +54,8 @@ public abstract class Animal {  // Классы "заготовки" приня�
 
   protected abstract void voice();  // абстрактный метод не имеет тела, он не имеет своей логики, может быть только в абстрактном классе
   // !!! В дочернем классе абстрактный метод родительского класса должен быть обязательно перегружен/имплементирован*, иначе не скомпилируется
+
+  public abstract void eat(Plate plate);
 
   public abstract void run(String name, int length);
 

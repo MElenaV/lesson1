@@ -6,6 +6,17 @@ public class Lesson6_OOP {
   Animal cat1 = new Cat("Мурзик", 3, 10);
   Animal cat2 = new Cat("Мурзик", 3, 10);
 
+  Animal cat3 = new Cat("Барон", 10);
+  Plate plate1 = new Plate(100);
+  Plate plate2 = new Plate(20);
+  System.out.println(plate1);
+  System.out.println(plate2);
+  cat3.eat(plate1);
+  cat3.eat(plate2);
+  System.out.println(plate1);
+  System.out.println(plate2);
+
+
     System.out.println(cat1);
     System.out.println(dog1);
 

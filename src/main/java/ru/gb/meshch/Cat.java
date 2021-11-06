@@ -13,6 +13,10 @@ public class Cat extends Animal {  // "чертеж" кота :)
     return count;
   }
 
+  public Cat(String name, int appetite) {
+    super(name, appetite);
+  }
+
   @Override  // переопределение метода родительского класса
   public void voice() {
     System.out.println("Мяу");
@@ -47,4 +51,9 @@ public class Cat extends Animal {  // "чертеж" кота :)
     return  (cat.getName().equals(this.getName()) && cat.getAge() == this.getAge() && cat.getWeight() == this.getWeight());
   }
 
+  @Override
+  public void eat(Plate plate) {
+    plate.decreaseFood(getAppetite());
+
+  }
 }

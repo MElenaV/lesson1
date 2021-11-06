@@ -23,6 +23,11 @@ public class Dog extends Animal {
   }
 
   @Override
+  public void eat(Plate plate) {
+
+  }
+
+  @Override
   public void run(String name, int length) {
     if (length <= 500) {
       System.out.printf("%s пробежал %dм\n", name, length);
