@@ -17,11 +17,11 @@ public class OOP {
 
     Employee[] employeeArr = new Employee[5];
     int adultAge = 40;
-    employeeArr[0] = new Employee("Петров Петр Петрович", "инженер", "petrovPP@gmail.com", "8 910 104 78 23", 45000, 24);
-    employeeArr[1] = new Employee("Петров Петр Петрович", "инженер", "petrovPP@gmail.com", "8 910 104 78 23", 45000, 24);
-    employeeArr[2] = new Employee("Моисеев Андрей Алексеевич", "менеджер отдела продаж", "moiseev@gmail.com", "+7(926-654-32-12)", 45000, 45);
-    employeeArr[3] = new Employee("Бубнов Антон Иванович", "менеджер отдела продаж", "buben@yandex.ru", "79106547898", 35000, 29);
-    employeeArr[4] = new Employee("Волкова Анастасия Сергеевна", "бухгалтер", "volchok@mail.ru", "248-46-52", 30000, 41);
+    employeeArr[0] = new Employee("Петров Петр Петрович", Position.ENGINEER, "petrovPP@gmail.com", "8 910 104 78 23", 45000, 24);
+    employeeArr[1] = new Employee("Петров Петр Петрович", Position.ENGINEER, "petrovPP@gmail.com", "8 910 104 78 23", 45000, 24);
+    employeeArr[2] = new Employee("Моисеев Андрей Алексеевич", Position.MANAGER, "moiseev@gmail.com", "+7(926-654-32-12)", 45000, 45);
+    employeeArr[3] = new Employee("Бубнов Антон Иванович", Position.SALES_MANAGER, "buben@yandex.ru", "79106547898", 35000, 29);
+    employeeArr[4] = new Employee("Волкова Анастасия Сергеевна", Position.ACCOUNTANT, "volchok@mail.ru", "248-46-52", 30000, 41);
 
     System.out.println("Список всех сотрудников:");
     for (int i = 0; i < employeeArr.length; i++) {
@@ -42,7 +42,21 @@ public class OOP {
             .filter(e -> e.getAge() < adultAge)
             .forEach(e -> System.out.println(e));
 
-    System.out.println(employeeArr[0].equals(employeeArr[1]));
+    for (Position value : Position.values()) {
+      System.out.println(value.ordinal() + ": " + value.name() + "(" + value.getName() + ")");
+    }
+
+    StringBuilder a = new StringBuilder("");  // не возникнет утечки памяти, в отличие от конкатенации строк (a += b) - в памяти каждый раз создаётся новая строка
+    for (int i = 0; i < 1_000; i++) {
+      a.append("b");
+    }
+    System.out.println(a.toString());
+
+    StringBuffer e = new StringBuffer("");  // тоже самое, что и StringBuilder, но можно использовать в многопоточной среде
+    for (int i = 0; i < 1_000; i++) {
+      e.append("d");
+    }
+    System.out.println(e.toString());
 
   }
 

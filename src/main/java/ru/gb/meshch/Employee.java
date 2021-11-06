@@ -3,13 +3,13 @@ package ru.gb.meshch;
 public class Employee {
 
   private String fullName;
-  private String position;
+  private Position position;
   private String email;
   private String phone;
   private double salary;
   private int age;
 
-  public Employee(String fullName, String position, String email, String phone, double salary, int age) {
+  public Employee(String fullName, Position position, String email, String phone, double salary, int age) {
     this.fullName = fullName;
     this.position = position;
     this.email = email;
@@ -28,6 +28,14 @@ public class Employee {
 
   public void printEmployee() {
     System.out.printf("ФИО: %s, должность: %s, email: %s, телефон: %s, зарплата: %f, возраст: %d\n", fullName, position, email, phone, salary, age);
+  }
+
+  public double getSalary() {
+    return salary;
+  }
+
+  public Position getPosition() {
+    return position;
   }
 
   @Override
@@ -63,4 +71,19 @@ public class Employee {
     return phone != null ? phone.equals(employee.phone) : employee.phone == null;
   }
 
+  @Override
+  public int hashCode() {
+    // для разных объектов может возвращать одно значение
+    // если а.equals(b) == true, то хеш-коды а и b должны быть равны
+    int result;
+    long temp;
+    result = fullName != null ? fullName.hashCode() : 0;
+    result = 31 * result + (position != null ? position.hashCode() : 0);
+    result = 31 * result + (email != null ? email.hashCode() : 0);
+    result = 31 * result + (phone != null ? phone.hashCode() : 0);
+    temp = Double.doubleToLongBits(salary);
+    result = 31 * result + (int) (temp ^ (temp >>> 32));
+    result = 31 * result + age;
+    return result;
+  }
 }
