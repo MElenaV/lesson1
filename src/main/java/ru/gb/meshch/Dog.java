@@ -2,11 +2,23 @@ package ru.gb.meshch;
 
 public class Dog extends Animal {
 
+  public static final int DOG_RUN_LIMIT = 500;
+  public static final int DOG_SWIM_LIMIT = 10;
   private static int count = 0;
 
   public Dog(String name, int age, double weight) {
     super(name, age, weight);  // super - означат родительский класс
     count++;
+  }
+
+  @Override
+  public int getRunLimit() {
+    return DOG_RUN_LIMIT;
+  }
+
+  @Override
+  public int getSwimLimit() {
+    return DOG_SWIM_LIMIT;
   }
 
   public static int countDog() {
@@ -27,21 +39,5 @@ public class Dog extends Animal {
 
   }
 
-  @Override
-  public void run(String name, int length) {
-    if (length <= 500) {
-      System.out.printf("%s пробежал %dм\n", name, length);
-    } else {
-      System.out.printf("%s не может пробежать более %dм\n", name, length);
-    }
-  }
 
-  @Override
-  public void swim(String name, int length) {
-    if (length <= 10) {
-      System.out.printf("%s проплыл %dм\n", name, length);
-    } else {
-      System.out.printf("%s не может проплыть более %dм\n", name, length);
-    }
-  }
 }

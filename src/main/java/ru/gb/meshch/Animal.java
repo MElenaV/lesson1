@@ -6,6 +6,7 @@ public abstract class Animal {  // Классы "заготовки" приня�
   private int age;
   private double weight;
 
+
   private static int count = 0;
 
   public Animal(String name, int age, double weight) {
@@ -23,6 +24,10 @@ public abstract class Animal {  // Классы "заготовки" приня�
     this.name = name;
     this.appetite = appetite;
   }
+
+  public abstract int getRunLimit();
+
+  public abstract int getSwimLimit();
 
   public int getAppetite() {
     return appetite;
@@ -57,9 +62,21 @@ public abstract class Animal {  // Классы "заготовки" приня�
 
   public abstract void eat(Plate plate);
 
-  public abstract void run(String name, int length);
+  public void run(String name, int length) {
+    if (length <= getRunLimit()) {
+      System.out.printf("%s пробежал %dм\n", name, length);
+    } else {
+      System.out.printf("%s не может пробежать более %dм\n", name, length);
+    }
+  }
 
-  public abstract void swim(String name, int length);
+  public void swim(String name, int length) {
+    if (length <= getSwimLimit()) {
+      System.out.printf("%s проплыл %dм\n", name, length);
+    } else {
+      System.out.printf("%s не может проплыть более %dм\n", name, length);
+    }
+  }
 
   @Override  // метод toString() - превращает класс в некоторое строковое представление
   public String toString() {  // перегрузка метода базового класса Object

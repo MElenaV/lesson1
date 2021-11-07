@@ -1,7 +1,9 @@
 package ru.gb.meshch;
 
-public class Cat extends Animal {  // "чертеж" кота :)
+public class Cat extends Animal {
 
+  public static final int CAT_RUN_LIMIT = 200;
+  public static final int CAT_SWIM_LIMIT = 0;
   private static int count = 0;
 
   public Cat(String name, int age, double weight) {
@@ -23,15 +25,16 @@ public class Cat extends Animal {  // "чертеж" кота :)
   }
 
   @Override
-  public void run(String name, int length) {
-    if (length <= 200) {
-      System.out.printf("%s пробежал %dм\n", name, length);
-    } else {
-      System.out.printf("%s не может пробежать более %dм\n", name, length);
-    }
+  public int getRunLimit() {
+    return CAT_RUN_LIMIT;
   }
 
   @Override
+  public int getSwimLimit() {
+    return CAT_SWIM_LIMIT;
+  }
+
+ @Override
   public void swim(String name, int length) {
       System.out.printf("%s не может плыть, даже %dм\n", name, length);
   }
