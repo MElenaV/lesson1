@@ -15,8 +15,24 @@ public class Cat extends Animal {
     return count;
   }
 
-  public Cat(String name, int appetite) {
-    super(name, appetite);
+  public Cat(String name, int appetite, boolean satiety) {
+    super(name, appetite, satiety);
+  }
+
+  public void printCat() {
+    System.out.printf("Кличка: %s, аппетит: %d, сытость: %b\n", getName(), getAppetite(), isSatiety());
+  }
+
+  @Override
+  public boolean checkSatiety(String name, int appetite) {
+    if (appetite == 0) {
+      System.out.printf("%s сыт\n", name);
+      return true;
+    }
+    else {
+      System.out.printf("%s голодный\n", name);
+      return false;
+    }
   }
 
   @Override  // переопределение метода родительского класса
@@ -56,7 +72,18 @@ public class Cat extends Animal {
 
   @Override
   public void eat(Plate plate) {
-    plate.decreaseFood(getAppetite());
-
+    int appetite;
+    if (getAppetite() <= plate.getFood()) {
+      plate.decreaseFood(getAppetite());
+      appetite = 0;
+      setAppetite(appetite);
+      setSatiety(checkSatiety(getName(), appetite));
+    }
+    else {
+      appetite = getAppetite();
+      System.out.printf("%s отказался есть, не достаточно еды\n", getName());
+      setSatiety(checkSatiety(getName(), appetite));
+    }
   }
+
 }

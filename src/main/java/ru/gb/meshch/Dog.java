@@ -36,7 +36,11 @@ public class Dog extends Animal {
 
   @Override
   public void eat(Plate plate) {
+  }
 
+  @Override
+  public boolean checkSatiety(String name, int appetite) {
+    return false;
   }
 
 

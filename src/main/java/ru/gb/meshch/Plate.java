@@ -13,15 +13,22 @@ public class Plate {
   }
 
   public void decreaseFood(int food) {
-    this.food -= food;
+    if (food > 0) {
+      this.food -= food;
+    }
+  }
+
+  public void addFood(int food) {
+    this.food += food;
+    System.out.printf("Добавили %d единиц корма в тарелку", food);
   }
 
 
   @Override
   public String toString() {
-    final StringBuffer sb = new StringBuffer("Plate{");
-    sb.append("food=").append(food);
-    sb.append('}');
+    final StringBuffer sb = new StringBuffer("В тарелке ");
+    sb.append(food);
+    sb.append(" единиц корма");
     return sb.toString();
   }
 }
